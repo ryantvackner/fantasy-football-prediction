@@ -113,4 +113,48 @@ mydatrb <- mydat[which(mydat$Position == "RB"),]
 mydatwr <- mydat[which(mydat$Position == "WR"),]
 mydatte <- mydat[which(mydat$Position == "TE"),]
 
+# Plots!
+# plots for qb
+plot(x = mydatqb$Age, y = mydatqb$PPR, xlab = "Age", ylab = "PPR")
+plot(x = mydatqb$Pass.Cmp, y = mydatqb$PPR, xlab = "Pass Completion", ylab = "PPR")
+plot(x = mydatqb$Pass.Cmp, y = mydatqb$newPPR, xlab = "Pass Completion", ylab = "Next Year PPR")
+plot(x = mydatqb$Pass.Yds, y = mydatqb$PPR, xlab = "Pass Yards", ylab = "PPR")
+plot(x = mydatqb$Pass.Yds, y = mydatqb$newPPR, xlab = "Pass Yards", ylab = "Next Year PPR")
+plot(x = mydatqb$Pass.TD, y = mydatqb$PPR, xlab = "Pass TD", ylab = "PPR")
+plot(x = mydatqb$Pass.TD, y = mydatqb$newPPR, xlab = "Pass TD", ylab = "Next Year PPR")
+plot(x = mydatqb$Pass.Int, y = mydatqb$PPR, xlab = "Interceptions", ylab = "PPR")
+plot(x = mydatqb$Pass.Int, y = mydatqb$newPPR, xlab = "Interceptions", ylab = "Next Year PPR")
+plot(x = mydatqb$PPR, y = mydatqb$newPPR, xlab = "PPR", ylab = "Next Year PPR")
+
+# plots for rb
+plot(x = mydatrb$Age, y = mydatrb$PPR, xlab = "Age", ylab = "PPR")
+plot(x = mydatrb$Rush.Yds, y = mydatrb$PPR, xlab = "Rush Yards", ylab = "PPR")
+plot(x = mydatrb$Rush.Yds, y = mydatrb$newPPR, xlab = "Rush Yards", ylab = "Next Year PPR")
+plot(x = mydatrb$Rush.TD, y = mydatrb$PPR, xlab = "Rush TD", ylab = "PPR")
+plot(x = mydatrb$Rush.TD, y = mydatrb$newPPR, xlab = "Rush TD", ylab = "Next Year PPR")
+plot(x = mydatrb$Fmb, y = mydatrb$PPR, xlab = "Fumbles", ylab = "PPR")
+plot(x = mydatrb$Fmb, y = mydatrb$newPPR, xlab = "Fumbles", ylab = "Next Year PPR")
+plot(x = mydatrb$PPR, y = mydatrb$newPPR, xlab = "PPR", ylab = "Next Year PPR")
+
+
+# plots for wr
+plot(x = mydatwr$Age, y = mydatwr$PPR, xlab = "Age", ylab = "PPR")
+plot(x = mydatwr$Rec, y = mydatwr$PPR, xlab = "Receptions", ylab = "PPR")
+plot(x = mydatwr$Rec, y = mydatwr$newPPR, xlab = "Receptions", ylab = "Next Year PPR")
+plot(x = mydatwr$Rec.Yds, y = mydatwr$PPR, xlab = "Receiving Yards", ylab = "PPR")
+plot(x = mydatwr$Rec.Yds, y = mydatwr$newPPR, xlab = "Receiving Yards", ylab = "Next Year PPR")
+plot(x = mydatwr$Rec.TD, y = mydatwr$PPR, xlab = "Receiving TD", ylab = "PPR")
+plot(x = mydatwr$Rec.TD, y = mydatwr$newPPR, xlab = "Receiving TD", ylab = "Next Year PPR")
+plot(x = mydatwr$PPR, y = mydatwr$newPPR, xlab = "PPR", ylab = "Next Year PPR")
+
+# plots for te
+plot(x = mydatte$Age, y = mydatte$PPR, xlab = "Age", ylab = "PPR")
+plot(x = mydatte$Rec, y = mydatte$PPR, xlab = "Receptions", ylab = "PPR")
+plot(x = mydatte$Rec, y = mydatte$newPPR, xlab = "Receptions", ylab = "Next Year PPR")
+plot(x = mydatte$Rec.Yds, y = mydatte$PPR, xlab = "Receiving Yards", ylab = "PPR")
+plot(x = mydatte$Rec.Yds, y = mydatte$newPPR, xlab = "Receiving Yards", ylab = "Next Year PPR")
+plot(x = mydatte$Rec.TD, y = mydatte$PPR, xlab = "Receiving TD", ylab = "PPR")
+plot(x = mydatte$Rec.TD, y = mydatte$newPPR, xlab = "Receiving TD", ylab = "Next Year PPR")
+plot(x = mydatte$PPR, y = mydatte$newPPR, xlab = "PPR", ylab = "Next Year PPR")
+
 
