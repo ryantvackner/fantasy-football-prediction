@@ -56,5 +56,42 @@ df18_19 <- merge(df18, df19, by = "Player")
 df19_20 <- merge(df19, df20, by = "Player")
 df20_21 <- merge(df20, df20, by = "Player")
 
-# change the names of the variables in the new dataframes to combine them
+# print the names of the coloums in the dataframes
+names(df16_17)
 
+# change the names of the variables in the new dataframes to combine them
+colnames(df16_17) <- c("Player", "Position", "Age", "Games", "Pass.Cmp", "Pass.Att",
+                       "Pass.Yds", "Pass.TD", "Pass.Int", "Rush.Att", "Rush.Yds", "Rush.TD", 
+                       "Rec.Tgt", "Rec", "Rec.Yds", "Rec.TD", "Fmb", "Tot.TD", 
+                       "FantPt", "PPR", "newPosition", "newAge", "newGames", "newPass.Cmp",
+                       "newPass.Att", "newPass.Yds", "newPass.TD", "newPass.Int", "newRush.Att", "newRush.Yds",
+                       "newRush.TD", "newRec.Tgt", "newRec", "newRec.Yds", "newRec.TD", "newFmb",    
+                       "newTot.TD", "newFantPt", "newPPR")
+colnames(df17_18) <- c("Player", "Position", "Age", "Games", "Pass.Cmp", "Pass.Att",
+                       "Pass.Yds", "Pass.TD", "Pass.Int", "Rush.Att", "Rush.Yds", "Rush.TD", 
+                       "Rec.Tgt", "Rec", "Rec.Yds", "Rec.TD", "Fmb", "Tot.TD", 
+                       "FantPt", "PPR", "newPosition", "newAge", "newGames", "newPass.Cmp",
+                       "newPass.Att", "newPass.Yds", "newPass.TD", "newPass.Int", "newRush.Att", "newRush.Yds",
+                       "newRush.TD", "newRec.Tgt", "newRec", "newRec.Yds", "newRec.TD", "newFmb",    
+                       "newTot.TD", "newFantPt", "newPPR")
+colnames(df18_19) <- c("Player", "Position", "Age", "Games", "Pass.Cmp", "Pass.Att",
+                       "Pass.Yds", "Pass.TD", "Pass.Int", "Rush.Att", "Rush.Yds", "Rush.TD", 
+                       "Rec.Tgt", "Rec", "Rec.Yds", "Rec.TD", "Fmb", "Tot.TD", 
+                       "FantPt", "PPR", "newPosition", "newAge", "newGames", "newPass.Cmp",
+                       "newPass.Att", "newPass.Yds", "newPass.TD", "newPass.Int", "newRush.Att", "newRush.Yds",
+                       "newRush.TD", "newRec.Tgt", "newRec", "newRec.Yds", "newRec.TD", "newFmb",    
+                       "newTot.TD", "newFantPt", "newPPR")
+colnames(df19_20) <- c("Player", "Position", "Age", "Games", "Pass.Cmp", "Pass.Att",
+                       "Pass.Yds", "Pass.TD", "Pass.Int", "Rush.Att", "Rush.Yds", "Rush.TD", 
+                       "Rec.Tgt", "Rec", "Rec.Yds", "Rec.TD", "Fmb", "Tot.TD", 
+                       "FantPt", "PPR", "newPosition", "newAge", "newGames", "newPass.Cmp",
+                       "newPass.Att", "newPass.Yds", "newPass.TD", "newPass.Int", "newRush.Att", "newRush.Yds",
+                       "newRush.TD", "newRec.Tgt", "newRec", "newRec.Yds", "newRec.TD", "newFmb",    
+                       "newTot.TD", "newFantPt", "newPPR")
+colnames(df20_21) <- c("Player", "Position", "Age", "Games", "Pass.Cmp", "Pass.Att",
+                       "Pass.Yds", "Pass.TD", "Pass.Int", "Rush.Att", "Rush.Yds", "Rush.TD", 
+                       "Rec.Tgt", "Rec", "Rec.Yds", "Rec.TD", "Fmb", "Tot.TD", 
+                       "FantPt", "PPR", "newPosition", "newAge", "newGames", "newPass.Cmp",
+                       "newPass.Att", "newPass.Yds", "newPass.TD", "newPass.Int", "newRush.Att", "newRush.Yds",
+                       "newRush.TD", "newRec.Tgt", "newRec", "newRec.Yds", "newRec.TD", "newFmb",    
+                       "newTot.TD", "newFantPt", "newPPR")
