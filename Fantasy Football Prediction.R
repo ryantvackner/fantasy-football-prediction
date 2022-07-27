@@ -95,3 +95,22 @@ colnames(df20_21) <- c("Player", "Position", "Age", "Games", "Pass.Cmp", "Pass.A
                        "newPass.Att", "newPass.Yds", "newPass.TD", "newPass.Int", "newRush.Att", "newRush.Yds",
                        "newRush.TD", "newRec.Tgt", "newRec", "newRec.Yds", "newRec.TD", "newFmb",    
                        "newTot.TD", "newFantPt", "newPPR")
+
+# merge all two year dataframes into one large dataframe with rbind
+mydat <- rbind(df16_17, df17_18, df18_19, df19_20, df20_21)
+
+#*
+#* Note:
+#* Now because we are looking at the data year over year of the players
+#* I have 2456 observations with mydat. There are players who are seen in 
+#* multiple rows but this isn't a problem since it is comparing two different
+#* years of the same player. 
+#* 
+
+# Creating subsets of my new mydat dataframe
+mydatqb <- mydat[which(mydat$Position == "QB"),]
+mydatrb <- mydat[which(mydat$Position == "RB"),]
+mydatwr <- mydat[which(mydat$Position == "WR"),]
+mydatte <- mydat[which(mydat$Position == "TE"),]
+
+
