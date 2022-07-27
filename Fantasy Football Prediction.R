@@ -113,48 +113,49 @@ mydatrb <- mydat[which(mydat$Position == "RB"),]
 mydatwr <- mydat[which(mydat$Position == "WR"),]
 mydatte <- mydat[which(mydat$Position == "TE"),]
 
+
 # Plots!
 # plots for qb
-plot(x = mydatqb$Age, y = mydatqb$PPR, xlab = "Age", ylab = "PPR")
-plot(x = mydatqb$Pass.Cmp, y = mydatqb$PPR, xlab = "Pass Completion", ylab = "PPR")
-plot(x = mydatqb$Pass.Cmp, y = mydatqb$newPPR, xlab = "Pass Completion", ylab = "Next Year PPR")
-plot(x = mydatqb$Pass.Yds, y = mydatqb$PPR, xlab = "Pass Yards", ylab = "PPR")
-plot(x = mydatqb$Pass.Yds, y = mydatqb$newPPR, xlab = "Pass Yards", ylab = "Next Year PPR")
-plot(x = mydatqb$Pass.TD, y = mydatqb$PPR, xlab = "Pass TD", ylab = "PPR")
-plot(x = mydatqb$Pass.TD, y = mydatqb$newPPR, xlab = "Pass TD", ylab = "Next Year PPR")
-plot(x = mydatqb$Pass.Int, y = mydatqb$PPR, xlab = "Interceptions", ylab = "PPR")
-plot(x = mydatqb$Pass.Int, y = mydatqb$newPPR, xlab = "Interceptions", ylab = "Next Year PPR")
-plot(x = mydatqb$PPR, y = mydatqb$newPPR, xlab = "PPR", ylab = "Next Year PPR")
+plot(x = mydatqb$Age, y = mydatqb$PPR, xlab = "Age", ylab = "PPR", main = "QB Age vs PPR")
+plot(x = mydatqb$Pass.Cmp, y = mydatqb$PPR, xlab = "Pass Completion", ylab = "PPR", main = "QB Pass Completion vs PPR")
+plot(x = mydatqb$Pass.Cmp, y = mydatqb$newPPR, xlab = "Pass Completion", ylab = "Following Year PPR", main = "QB Pass Completion vs Following Year PPR")
+plot(x = mydatqb$Pass.Yds, y = mydatqb$PPR, xlab = "Pass Yards", ylab = "PPR", main = "QB Pass Yards vs PPR")
+plot(x = mydatqb$Pass.Yds, y = mydatqb$newPPR, xlab = "Pass Yards", ylab = "Following Year PPR", main = "QB Pass Yards vs Following Year PPR")
+plot(x = mydatqb$Pass.TD, y = mydatqb$PPR, xlab = "Pass TD", ylab = "PPR", main = "QB Pass TD vs PPR")
+plot(x = mydatqb$Pass.TD, y = mydatqb$newPPR, xlab = "Pass TD", ylab = "Following Year PPR", main = "QB Pass TD vs Following Year PPR")
+plot(x = mydatqb$Pass.Int, y = mydatqb$PPR, xlab = "Interceptions", ylab = "PPR", main = "QB Interceptions vs PPR")
+plot(x = mydatqb$Pass.Int, y = mydatqb$newPPR, xlab = "Interceptions", ylab = "Following Year PPR", main = "QB Interceptions vs PPR")
+plot(x = mydatqb$PPR, y = mydatqb$newPPR, xlab = "PPR", ylab = "Following Year PPR", main = "QB PPR vs Following Year PPR")
+
 
 # plots for rb
-plot(x = mydatrb$Age, y = mydatrb$PPR, xlab = "Age", ylab = "PPR")
-plot(x = mydatrb$Rush.Yds, y = mydatrb$PPR, xlab = "Rush Yards", ylab = "PPR")
-plot(x = mydatrb$Rush.Yds, y = mydatrb$newPPR, xlab = "Rush Yards", ylab = "Next Year PPR")
-plot(x = mydatrb$Rush.TD, y = mydatrb$PPR, xlab = "Rush TD", ylab = "PPR")
-plot(x = mydatrb$Rush.TD, y = mydatrb$newPPR, xlab = "Rush TD", ylab = "Next Year PPR")
-plot(x = mydatrb$Fmb, y = mydatrb$PPR, xlab = "Fumbles", ylab = "PPR")
-plot(x = mydatrb$Fmb, y = mydatrb$newPPR, xlab = "Fumbles", ylab = "Next Year PPR")
-plot(x = mydatrb$PPR, y = mydatrb$newPPR, xlab = "PPR", ylab = "Next Year PPR")
+plot(x = mydatrb$Age, y = mydatrb$PPR, xlab = "Age", ylab = "PPR", main = "RB Age vs PPR")
+plot(x = mydatrb$Rush.Yds, y = mydatrb$PPR, xlab = "Rush Yards", ylab = "PPR", main = "RB Rush Yards vs PPR")
+plot(x = mydatrb$Rush.Yds, y = mydatrb$newPPR, xlab = "Rush Yards", ylab = "Following Year PPR", main = "RB Rush Yards vs Following Year PPR")
+plot(x = mydatrb$Rush.TD, y = mydatrb$PPR, xlab = "Rush TD", ylab = "PPR", main = "RB Rush TD vs PPR")
+plot(x = mydatrb$Rush.TD, y = mydatrb$newPPR, xlab = "Rush TD", ylab = "Following Year PPR", main = "RB Rush TD vs Following Year PPR")
+plot(x = mydatrb$Fmb, y = mydatrb$PPR, xlab = "Fumbles", ylab = "PPR", main = "RB Fumbles vs PPR")
+plot(x = mydatrb$Fmb, y = mydatrb$newPPR, xlab = "Fumbles", ylab = "Following Year PPR", main = "RB Fumbles vs Following Year PPR")
+plot(x = mydatrb$PPR, y = mydatrb$newPPR, xlab = "PPR", ylab = "Following Year PPR", main = "RB PPR vs Following Year PPR")
 
 
 # plots for wr
-plot(x = mydatwr$Age, y = mydatwr$PPR, xlab = "Age", ylab = "PPR")
-plot(x = mydatwr$Rec, y = mydatwr$PPR, xlab = "Receptions", ylab = "PPR")
-plot(x = mydatwr$Rec, y = mydatwr$newPPR, xlab = "Receptions", ylab = "Next Year PPR")
-plot(x = mydatwr$Rec.Yds, y = mydatwr$PPR, xlab = "Receiving Yards", ylab = "PPR")
-plot(x = mydatwr$Rec.Yds, y = mydatwr$newPPR, xlab = "Receiving Yards", ylab = "Next Year PPR")
-plot(x = mydatwr$Rec.TD, y = mydatwr$PPR, xlab = "Receiving TD", ylab = "PPR")
-plot(x = mydatwr$Rec.TD, y = mydatwr$newPPR, xlab = "Receiving TD", ylab = "Next Year PPR")
-plot(x = mydatwr$PPR, y = mydatwr$newPPR, xlab = "PPR", ylab = "Next Year PPR")
+plot(x = mydatwr$Age, y = mydatwr$PPR, xlab = "Age", ylab = "PPR", main = "WR Age vs PPR")
+plot(x = mydatwr$Rec, y = mydatwr$PPR, xlab = "Receptions", ylab = "PPR", main = "WR Receptions vs PPR")
+plot(x = mydatwr$Rec, y = mydatwr$newPPR, xlab = "Receptions", ylab = "Next Year PPR", main = "WR Receptions vs Following Year PPR")
+plot(x = mydatwr$Rec.Yds, y = mydatwr$PPR, xlab = "Receiving Yards", ylab = "PPR", main = "WR Receiving Yards vs PPR")
+plot(x = mydatwr$Rec.Yds, y = mydatwr$newPPR, xlab = "Receiving Yards", ylab = "FOllowing Year PPR", main = "WR Receiving Yards vs Following Year PPR")
+plot(x = mydatwr$Rec.TD, y = mydatwr$PPR, xlab = "Receiving TD", ylab = "PPR", main = "WR Receiving TD vs PPR")
+plot(x = mydatwr$Rec.TD, y = mydatwr$newPPR, xlab = "Receiving TD", ylab = "FOllowing Year PPR", main = "WR Receiving TD vs Following Year PPR")
+plot(x = mydatwr$PPR, y = mydatwr$newPPR, xlab = "PPR", ylab = "Following Year PPR", main = "WR PPR vs Following Year PPR")
+
 
 # plots for te
-plot(x = mydatte$Age, y = mydatte$PPR, xlab = "Age", ylab = "PPR")
-plot(x = mydatte$Rec, y = mydatte$PPR, xlab = "Receptions", ylab = "PPR")
-plot(x = mydatte$Rec, y = mydatte$newPPR, xlab = "Receptions", ylab = "Next Year PPR")
-plot(x = mydatte$Rec.Yds, y = mydatte$PPR, xlab = "Receiving Yards", ylab = "PPR")
-plot(x = mydatte$Rec.Yds, y = mydatte$newPPR, xlab = "Receiving Yards", ylab = "Next Year PPR")
-plot(x = mydatte$Rec.TD, y = mydatte$PPR, xlab = "Receiving TD", ylab = "PPR")
-plot(x = mydatte$Rec.TD, y = mydatte$newPPR, xlab = "Receiving TD", ylab = "Next Year PPR")
-plot(x = mydatte$PPR, y = mydatte$newPPR, xlab = "PPR", ylab = "Next Year PPR")
-
-
+plot(x = mydatte$Age, y = mydatte$PPR, xlab = "Age", ylab = "PPR", main = "TE Age vs PPR")
+plot(x = mydatte$Rec, y = mydatte$PPR, xlab = "Receptions", ylab = "PPR", main = "TE Receptions vs PPR")
+plot(x = mydatte$Rec, y = mydatte$newPPR, xlab = "Receptions", ylab = "Next Year PPR", main = "TE Receptions vs Following Year PPR")
+plot(x = mydatte$Rec.Yds, y = mydatte$PPR, xlab = "Receiving Yards", ylab = "PPR", main = "TE Receiving Yards vs PPR")
+plot(x = mydatte$Rec.Yds, y = mydatte$newPPR, xlab = "Receiving Yards", ylab = "FOllowing Year PPR", main = "TE Receiving Yards vs Following Year PPR")
+plot(x = mydatte$Rec.TD, y = mydatte$PPR, xlab = "Receiving TD", ylab = "PPR", main = "TE Receiving TD vs PPR")
+plot(x = mydatte$Rec.TD, y = mydatte$newPPR, xlab = "Receiving TD", ylab = "FOllowing Year PPR", main = "TE Receiving TD vs Following Year PPR")
+plot(x = mydatte$PPR, y = mydatte$newPPR, xlab = "PPR", ylab = "Following Year PPR", main = "TE PPR vs Following Year PPR")
