@@ -54,7 +54,7 @@ df16_17 <- merge(df16, df17, by = "Player")
 df17_18 <- merge(df17, df18, by = "Player")
 df18_19 <- merge(df18, df19, by = "Player")
 df19_20 <- merge(df19, df20, by = "Player")
-df20_21 <- merge(df20, df20, by = "Player")
+df20_21 <- merge(df20, df21, by = "Player")
 
 # print the names of the coloums in the dataframes
 names(df16_17)
@@ -114,6 +114,7 @@ mydatwr <- mydat[which(mydat$Position == "WR"),]
 mydatte <- mydat[which(mydat$Position == "TE"),]
 
 
+
 # Plots!
 # plots for qb
 plot(x = mydatqb$Age, y = mydatqb$PPR, xlab = "Age", ylab = "PPR", main = "QB Age vs PPR")
@@ -125,6 +126,10 @@ plot(x = mydatqb$Pass.TD, y = mydatqb$PPR, xlab = "Pass TD", ylab = "PPR", main 
 plot(x = mydatqb$Pass.TD, y = mydatqb$newPPR, xlab = "Pass TD", ylab = "Following Year PPR", main = "QB Pass TD vs Following Year PPR")
 plot(x = mydatqb$Pass.Int, y = mydatqb$PPR, xlab = "Interceptions", ylab = "PPR", main = "QB Interceptions vs PPR")
 plot(x = mydatqb$Pass.Int, y = mydatqb$newPPR, xlab = "Interceptions", ylab = "Following Year PPR", main = "QB Interceptions vs PPR")
+plot(x = mydatqb$Rush.Yds, y = mydatqb$PPR, xlab = "Rush Yards", ylab = "PPR", main = "QB Rush Yards vs PPR")
+plot(x = mydatqb$Rush.Yds, y = mydatqb$newPPR, xlab = "Rush Yards", ylab = "Following Year PPR", main = "QB Rush Yards vs Following Year PPR")
+plot(x = mydatqb$Rush.TD, y = mydatqb$PPR, xlab = "Rush TD", ylab = "PPR", main = "QB Rush TD vs PPR")
+plot(x = mydatqb$Rush.TD, y = mydatqb$newPPR, xlab = "Rush TD", ylab = "Following Year PPR", main = "QB Rush TD vs Following Year PPR")
 plot(x = mydatqb$PPR, y = mydatqb$newPPR, xlab = "PPR", ylab = "Following Year PPR", main = "QB PPR vs Following Year PPR")
 
 
@@ -159,3 +164,33 @@ plot(x = mydatte$Rec.Yds, y = mydatte$newPPR, xlab = "Receiving Yards", ylab = "
 plot(x = mydatte$Rec.TD, y = mydatte$PPR, xlab = "Receiving TD", ylab = "PPR", main = "TE Receiving TD vs PPR")
 plot(x = mydatte$Rec.TD, y = mydatte$newPPR, xlab = "Receiving TD", ylab = "FOllowing Year PPR", main = "TE Receiving TD vs Following Year PPR")
 plot(x = mydatte$PPR, y = mydatte$newPPR, xlab = "PPR", ylab = "Following Year PPR", main = "TE PPR vs Following Year PPR")
+
+
+# linear regression 
+# qb regression
+regqb = lm(PPR~Pass.Yds + Pass.TD + Pass.Int + Rush.TD, data = mydatqb)
+summary(regqb)
+
+regqbprediction = lm(newPPR~Pass.Yds + Pass.TD + Pass.Int + Rush.TD, data = mydatqb)
+summary(regqbprediction)
+
+# rb regression
+regrb = lm(PPR~Rush.Yds + Rush.TD + Fmb, data = mydatrb)
+summary(regrb)
+
+regrbprediction = lm(newPPR~Rush.Yds + Rush.TD + Fmb, data = mydatrb)
+summary(regrbprediction)
+
+# wr regression
+regwr = lm(PPR~Rec + Rec.Yds + Rec.TD, data = mydatwr)
+summary(regwr)
+
+regwrprediction = lm(newPPR~Rec + Rec.Yds + Rec.TD + Fmb, data = mydatwr)
+summary(regwrprediction)
+
+# te regression
+regte = lm(PPR~Rec + Rec.Yds + Rec.TD, data = mydatte)
+summary(regte)
+
+regteprediction = lm(newPPR~Rec + Rec.Yds + Rec.TD + Fmb, data = mydatte)
+summary(regteprediction)
