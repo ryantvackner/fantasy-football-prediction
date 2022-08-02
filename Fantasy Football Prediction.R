@@ -8,6 +8,7 @@ library(readr)
 library(stargazer)
 library(jtools)
 library(ggplot2)
+library("writexl")
 library(RCurl)
 
 
@@ -57,7 +58,7 @@ df19_20 <- merge(df19, df20, by = "Player")
 df20_21 <- merge(df20, df21, by = "Player")
 
 # print the names of the coloums in the dataframes
-names(df16_17)
+# names(df16_17)
 
 # change the names of the variables in the new dataframes to combine them
 colnames(df16_17) <- c("Player", "Position", "Age", "Games", "Pass.Cmp", "Pass.Att",
@@ -95,6 +96,10 @@ colnames(df20_21) <- c("Player", "Position", "Age", "Games", "Pass.Cmp", "Pass.A
                        "newPass.Att", "newPass.Yds", "newPass.TD", "newPass.Int", "newRush.Att", "newRush.Yds",
                        "newRush.TD", "newRec.Tgt", "newRec", "newRec.Yds", "newRec.TD", "newFmb",    
                        "newTot.TD", "newFantPt", "newPPR")
+colnames(df21) <- c("Player", "Position", "Age", "Games", "Pass.Cmp", "Pass.Att",
+                    "Pass.Yds", "Pass.TD", "Pass.Int", "Rush.Att", "Rush.Yds", "Rush.TD", 
+                    "Rec.Tgt", "Rec", "Rec.Yds", "Rec.TD", "Fmb", "Tot.TD", 
+                    "FantPt", "PPR")
 
 # merge all two year dataframes into one large dataframe with rbind
 mydat <- rbind(df16_17, df17_18, df18_19, df19_20, df20_21)
@@ -112,6 +117,12 @@ mydatqb <- mydat[which(mydat$Position == "QB"),]
 mydatrb <- mydat[which(mydat$Position == "RB"),]
 mydatwr <- mydat[which(mydat$Position == "WR"),]
 mydatte <- mydat[which(mydat$Position == "TE"),]
+
+# Creating subsets of my df21 dataframe
+df21qb <- df21[which(df21$Position == "QB"),]
+df21rb <- df21[which(df21$Position == "RB"),]
+df21wr <- df21[which(df21$Position == "WR"),]
+df21te <- df21[which(df21$Position == "TE"),]
 
 
 
@@ -168,29 +179,62 @@ plot(x = mydatte$PPR, y = mydatte$newPPR, xlab = "PPR", ylab = "Following Year P
 
 # linear regression 
 # qb regression
-regqb = lm(PPR~Pass.Yds + Pass.TD + Pass.Int + Rush.TD, data = mydatqb)
+regqb = lm(PPR~Pass.Yds + Pass.TD + Pass.Int + Rush.Yds + Rush.TD + Fmb + Rec + Rec.Yds + Rec.TD, data = mydatqb)
 summary(regqb)
 
-regqbprediction = lm(newPPR~Pass.Yds + Pass.TD + Pass.Int + Rush.TD, data = mydatqb)
+regqbprediction = lm(newPPR~Pass.Yds + Pass.TD + Pass.Int + Rush.Yds + Rush.TD + Fmb + Rec + Rec.Yds + Rec.TD, data = mydatqb)
 summary(regqbprediction)
 
 # rb regression
-regrb = lm(PPR~Rush.Yds + Rush.TD + Fmb, data = mydatrb)
+regrb = lm(PPR~Pass.Yds + Pass.TD + Pass.Int + Rush.Yds + Rush.TD + Fmb + Rec + Rec.Yds + Rec.TD, data = mydatrb)
 summary(regrb)
 
-regrbprediction = lm(newPPR~Rush.Yds + Rush.TD + Fmb, data = mydatrb)
+regrbprediction = lm(newPPR~Pass.Yds + Pass.TD + Pass.Int + Rush.Yds + Rush.TD + Fmb + Rec + Rec.Yds + Rec.TD, data = mydatrb)
 summary(regrbprediction)
 
 # wr regression
-regwr = lm(PPR~Rec + Rec.Yds + Rec.TD, data = mydatwr)
+regwr = lm(PPR~Pass.Yds + Pass.TD + Pass.Int + Rush.Yds + Rush.TD + Fmb + Rec + Rec.Yds + Rec.TD, data = mydatwr)
 summary(regwr)
 
-regwrprediction = lm(newPPR~Rec + Rec.Yds + Rec.TD + Fmb, data = mydatwr)
+regwrprediction = lm(newPPR~Pass.Yds + Pass.TD + Pass.Int + Rush.Yds + Rush.TD + Fmb + Rec + Rec.Yds + Rec.TD, data = mydatwr)
 summary(regwrprediction)
 
 # te regression
-regte = lm(PPR~Rec + Rec.Yds + Rec.TD, data = mydatte)
+regte = lm(PPR~Pass.Yds + Pass.TD + Pass.Int + Rush.Yds + Rush.TD + Fmb + Rec + Rec.Yds + Rec.TD, data = mydatte)
 summary(regte)
 
-regteprediction = lm(newPPR~Rec + Rec.Yds + Rec.TD + Fmb, data = mydatte)
+regteprediction = lm(newPPR~Pass.Yds + Pass.TD + Pass.Int + Rush.Yds + Rush.TD + Fmb + Rec + Rec.Yds + Rec.TD, data = mydatte)
 summary(regteprediction)
+
+
+
+# prediction time 
+# qb prediction
+df21qb$PPRprediction = predict(regqbprediction, df21qb)
+
+# rb prediction
+df21rb$PPRprediction = predict(regrbprediction, df21rb)
+
+# wr prediction
+df21wr$PPRprediction = predict(regwrprediction, df21wr)
+
+# te prediction
+df21te$PPRprediction = predict(regteprediction, df21te)
+
+
+# create a simple dataframe of player name, position, PPR, and PPRprediction
+allplayerprediction <- rbind(df21qb, df21rb, df21wr, df21te)
+
+# simplify the dataframe
+allplayerPPRprediction <- data.frame (allplayerprediction$Player,
+                                      allplayerprediction$Position,
+                                      allplayerprediction$PPR,
+                                      allplayerprediction$PPRprediction)
+
+# change the names of the cols
+colnames(allplayerPPRprediction) <- c("Player", "Position", "PPR", "PPRprediction")
+
+# write as an excel file
+write_xlsx(allplayerPPRprediction, "C:/Users/ryanv/OneDrive/Documents Sync/Documents/R/Data Visualization/Fantasy Football/2022NFLplayerPPRprediction.xlsx")
+
+
