@@ -158,22 +158,22 @@ plot(x = mydatrb$PPR, y = mydatrb$newPPR, xlab = "PPR", ylab = "Following Year P
 # plots for wr
 plot(x = mydatwr$Age, y = mydatwr$PPR, xlab = "Age", ylab = "PPR", main = "WR Age vs PPR")
 plot(x = mydatwr$Rec, y = mydatwr$PPR, xlab = "Receptions", ylab = "PPR", main = "WR Receptions vs PPR")
-plot(x = mydatwr$Rec, y = mydatwr$newPPR, xlab = "Receptions", ylab = "Next Year PPR", main = "WR Receptions vs Following Year PPR")
+plot(x = mydatwr$Rec, y = mydatwr$newPPR, xlab = "Receptions", ylab = "Following Year PPR", main = "WR Receptions vs Following Year PPR")
 plot(x = mydatwr$Rec.Yds, y = mydatwr$PPR, xlab = "Receiving Yards", ylab = "PPR", main = "WR Receiving Yards vs PPR")
-plot(x = mydatwr$Rec.Yds, y = mydatwr$newPPR, xlab = "Receiving Yards", ylab = "FOllowing Year PPR", main = "WR Receiving Yards vs Following Year PPR")
+plot(x = mydatwr$Rec.Yds, y = mydatwr$newPPR, xlab = "Receiving Yards", ylab = "Following Year PPR", main = "WR Receiving Yards vs Following Year PPR")
 plot(x = mydatwr$Rec.TD, y = mydatwr$PPR, xlab = "Receiving TD", ylab = "PPR", main = "WR Receiving TD vs PPR")
-plot(x = mydatwr$Rec.TD, y = mydatwr$newPPR, xlab = "Receiving TD", ylab = "FOllowing Year PPR", main = "WR Receiving TD vs Following Year PPR")
+plot(x = mydatwr$Rec.TD, y = mydatwr$newPPR, xlab = "Receiving TD", ylab = "Following Year PPR", main = "WR Receiving TD vs Following Year PPR")
 plot(x = mydatwr$PPR, y = mydatwr$newPPR, xlab = "PPR", ylab = "Following Year PPR", main = "WR PPR vs Following Year PPR")
 
 
 # plots for te
 plot(x = mydatte$Age, y = mydatte$PPR, xlab = "Age", ylab = "PPR", main = "TE Age vs PPR")
 plot(x = mydatte$Rec, y = mydatte$PPR, xlab = "Receptions", ylab = "PPR", main = "TE Receptions vs PPR")
-plot(x = mydatte$Rec, y = mydatte$newPPR, xlab = "Receptions", ylab = "Next Year PPR", main = "TE Receptions vs Following Year PPR")
+plot(x = mydatte$Rec, y = mydatte$newPPR, xlab = "Receptions", ylab = "Following Year PPR", main = "TE Receptions vs Following Year PPR")
 plot(x = mydatte$Rec.Yds, y = mydatte$PPR, xlab = "Receiving Yards", ylab = "PPR", main = "TE Receiving Yards vs PPR")
-plot(x = mydatte$Rec.Yds, y = mydatte$newPPR, xlab = "Receiving Yards", ylab = "FOllowing Year PPR", main = "TE Receiving Yards vs Following Year PPR")
+plot(x = mydatte$Rec.Yds, y = mydatte$newPPR, xlab = "Receiving Yards", ylab = "Following Year PPR", main = "TE Receiving Yards vs Following Year PPR")
 plot(x = mydatte$Rec.TD, y = mydatte$PPR, xlab = "Receiving TD", ylab = "PPR", main = "TE Receiving TD vs PPR")
-plot(x = mydatte$Rec.TD, y = mydatte$newPPR, xlab = "Receiving TD", ylab = "FOllowing Year PPR", main = "TE Receiving TD vs Following Year PPR")
+plot(x = mydatte$Rec.TD, y = mydatte$newPPR, xlab = "Receiving TD", ylab = "Following Year PPR", main = "TE Receiving TD vs Following Year PPR")
 plot(x = mydatte$PPR, y = mydatte$newPPR, xlab = "PPR", ylab = "Following Year PPR", main = "TE PPR vs Following Year PPR")
 
 
@@ -236,5 +236,6 @@ colnames(allplayerPPRprediction) <- c("Player", "Position", "PPR", "PPRpredictio
 
 # write as an excel file
 write_xlsx(allplayerPPRprediction, "C:/Users/ryanv/OneDrive/Documents Sync/Documents/R/Data Visualization/Fantasy Football/2022NFLplayerPPRprediction.xlsx")
+
 
 
